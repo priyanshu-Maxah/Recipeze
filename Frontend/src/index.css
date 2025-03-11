@@ -1,0 +1,372 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'Formiga-Medium'; 
+  src: url('../font/Formiga-Regular-BF6763a034ab201.otf') format('opentype'); 
+  font-weight: normal;
+  font-style:normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tropical Organic Demo';
+  src:url('../font/aAbstractGroovy.otf') format('opentype');   
+}
+
+.custom-text-shadow {
+  text-shadow: 4px 3px 0px #deb89a00, 
+               3px 8px 1px #e6561e36;
+}
+
+/* Scroller Styling */
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f131;
+  border-radius: 10px;
+} 
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #5c3c0bd5;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+
+/* Scrollbar Thumb on Hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #5c3c0b;
+}
+
+/* Scrollbar Itself */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+/* Scrollbar Corner */
+::-webkit-scrollbar-corner {
+  background-color: #f1f1f1;
+}
+
+
+
+.bg-img {
+  position: relative;
+  overflow: hidden; 
+}
+
+.bg-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://images.unsplash.com/photo-1508014861016-f37cdf89e94d?q=80&w=2154&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  filter: blur(3px);
+  z-index: 0;
+}
+
+.content {
+  position: relative; 
+  z-index: 10; 
+}
+
+
+form {
+  display: block;
+}
+
+
+.recipe-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); 
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.recipe-card {
+  backdrop-filter: blur(17px) saturate(180%);
+  -webkit-backdrop-filter: blur(17px) saturate(180%);
+  background-color: rgba(238, 238, 238, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.recipe-card:hover .overlay {
+  opacity: 1; 
+}
+
+.recipe-card .text-yellow-400 {
+  transition: transform 0.2s ease;
+}
+
+.recipe-card .text-yellow-400:hover {
+  transform: scale(1.2); 
+}
+
+
+.recipe-card:hover .text-primary {
+  color: #1d0402; 
+}
+
+.show-all-button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  --primary-color: #111;
+  --hovered-color: #c84747;
+  position: relative;
+  display: flex;
+  font-weight: 600;
+  font-size: 20px;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.show-all-button span {
+  margin: 0;
+  position: relative;
+  font-size: 20px;
+  color: var(--primary-color);
+  transition: color 0.3s ease-out;
+}
+
+.show-all-button:hover span {
+  color: var(--hovered-color);
+}
+
+.show-all-button svg {
+  color: var(--primary-color);
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
+  position: relative;
+  width: 15px;
+}
+
+.show-all-button:hover svg {
+  transform: translateX(4px);
+  color: var(--hovered-color);
+}
+
+.show-all-button::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--hovered-color);
+  height: 2px;
+  transition: width 0.3s ease-out;
+}
+
+.show-all-button:hover::after {
+  width: 100%;
+}
+
+.bottom-nav, .profile-card,.recipe-details-card{
+  backdrop-filter: blur(17px) saturate(180%);
+  -webkit-backdrop-filter: blur(17px) saturate(180%);
+  background-color: rgba(238, 238, 238, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.details-item, .list-item {
+     --background:#deb89a00 ; 
+}
+
+.list-item {
+  background-color: #49454500;
+}
+
+
+/* Custom Modal Styles */
+.custom-modal {
+  --background: #DEB79A; 
+  --backdrop-opacity: 0.4; 
+  --border-color: #DEB79A; 
+  --border-radius: 16px; 
+  --border-style: solid; 
+  --border-width: 1px;
+  --height: 80vh; 
+  --max-height: 90vh; 
+  --max-width: 600px;
+  --min-height: 300px; 
+  --min-width: 300px; 
+  --width: 90%; 
+}
+
+/* Custom Header Styles */
+.custom-header {
+  --background: #ffcc0000; 
+  --color: #1d1c1c; 
+}
+
+
+/* Custom Content Styles */
+.custom-content {
+  --padding: 20px;
+  --background: #DEB79A; 
+}
+
+/* Custom Button Styles */
+.custom-button {
+  --color: #6d0f0f; 
+  --background: #ffcc00; 
+  --border-radius: 8px;
+  --padding: 10px 20px; 
+}
+
+.svg-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader {
+  width: 50%; 
+  max-width: 200px; 
+  animation: pulse 2s infinite; 
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Pagination Container */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+}
+
+/* Pagination Buttons (Previous, Next, Page Numbers) */
+.pagination-button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  color: #75441e;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Lower Line Animation */
+.pagination-button::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #75441e;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+/* Hover Effect */
+.pagination-button:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+/* Active Page */
+.pagination-button.active::after {
+  width: 100%;
+  opacity: 1;
+}
+
+/* Disabled Buttons */
+.pagination-button:disabled {
+  color: #504d4d;
+  cursor: not-allowed;
+}
+
+.pagination-button:disabled::after {
+  display: none;
+}
+
+/* Hover Effect for Disabled Buttons */
+.pagination-button:disabled:hover::after {
+  width: 0;
+  opacity: 0;
+}
+
+@media screen and (max-width: 640px) and (min-width: 350px) {
+  .show-all-button span {
+    font-size: 15px;
+  }
+}
+
+
+@media screen and (max-width: 390px) and (min-width: 350px) {
+  .show-all-button svg {
+    margin-left: 0px;
+    width: 12px;
+  }
+
+  .show-all-button span {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .show-all-button svg {
+    margin-left: 0px;
+    width: 12px;
+  }
+
+  .show-all-button {
+   left: 54vw;
+    font-size: 14px;
+  }
+
+  .show-all-button span {
+    font-size: 14px;
+  }
+
+ .card-head {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+ }
+}
