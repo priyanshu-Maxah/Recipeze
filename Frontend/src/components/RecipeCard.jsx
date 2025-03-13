@@ -59,15 +59,15 @@ const RecipeCard = ({
         <div className="flex items-center gap-4 text-sm text-gray-600">
           <div className="flex items-center gap-1">
             <IonIcon icon={time} className="w-4 h-4" />
-            <span>Prep {prepTime}</span>
+            <span>Prep {prepTime} m</span>
           </div>
           <div className="flex items-center gap-1">
             <IonIcon icon={time} className="w-4 h-4" />
-            <span>Cook {cookTime}</span>
+            <span>Cook {cookTime} m</span>
           </div>
           <div className="flex items-center gap-1">
             <IonIcon icon={time} className="w-4 h-4" />
-            <span>Ready In {totalTime}</span>
+            <span>Ready In {totalTime} m</span>
           </div>
         </div>
       </IonCardContent>

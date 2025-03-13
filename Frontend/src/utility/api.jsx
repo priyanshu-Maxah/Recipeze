@@ -9,6 +9,7 @@ const profileViewUrl = "http://localhost:7777/profile/view";
 const profileEditUrl = "http://localhost:7777/profile/edit";
 const recipeViewUrl = "http://localhost:7777/recipes/view";
 const recipeAddUrl = "http://localhost:7777/recipes/add";
+const recipeEditUrl = "http://localhost:7777/recipes/edit";
 const recipeDeleteUrl = "http://localhost:7777/recipes/remove";
 const favoriteUrl = "http://localhost:7777/recipes/favorites";
 const favoriteViewUrl = "http://localhost:7777/recipes/favorites/view";
@@ -152,6 +153,29 @@ export const recipeAddApi = async (formData) => {
     return request;
   } catch (error) {
     console.error("Error during Add Recipes:", error.message);
+    throw error;
+  }
+};
+
+export const recipeEditApi = async (title, updates) => {
+  try {
+    // Ensure updates is an object and contains valid fields
+    if (!updates || typeof updates !== "object" || Object.keys(updates).length === 0) {
+      throw new Error("No updates provided");
+    }
+    const response = await axios.patch(
+      `${recipeEditUrl}?title=${encodeURIComponent(title)}`, 
+      updates, 
+      { withCredentials: true } 
+    );
+    if (response.status === 200) {
+      // console.log("Update Successful:", response.data);
+      return response.data; 
+    } else {
+      throw new Error(`Failed to update recipe: ${response.statusText}`);
+    }
+  } catch (error) {
+    console.error("Error updating recipe:", error.message);
     throw error;
   }
 };

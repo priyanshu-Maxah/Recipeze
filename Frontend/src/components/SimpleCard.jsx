@@ -27,15 +27,15 @@ const SimpleCard = ({ recipe, onClick }) => {
         <div className="flex items-center gap-4 text-sm text-gray-600">
           <div className="flex items-center gap-1">
             <IonIcon icon={time} className="w-4 h-4" />
-            <span>Prep {recipe.prepTime}</span>
+            <span>Prep {recipe.prepTime} m</span>
           </div>
           <div className="flex items-center gap-1">
             <IonIcon icon={time} className="w-4 h-4" />
-            <span>Cook {recipe.cookTime}</span>
+            <span>Cook {recipe.cookTime} m</span>
           </div>
           <div className="flex items-center gap-1">
             <IonIcon icon={time} className="w-4 h-4" />
-            <span>Ready In {recipe.totalTime}</span>
+            <span>Ready In {recipe.totalTime} m</span>
           </div>
         </div>
       </IonCardContent>

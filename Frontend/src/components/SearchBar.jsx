@@ -4,13 +4,13 @@ import React, { useState } from 'react';
 function SearchBar({ recipes, onSearch }) {
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Handle input change
+ 
   const handleInputChange = (event) => {
     const query = event.target.value; 
     setSearchQuery(query);
   };
 
-  // Handle search icon click
+ 
   const handleSearchClick = () => {
     onSearch(searchQuery);
   };

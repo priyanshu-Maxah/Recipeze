@@ -11,7 +11,7 @@ import RecipeDetail from "../components/RecipeDetail";
 import { X } from "lucide-react";
 import { recipeViewApi, recipeDeleteApi, favoriteApi, favoriteRemoveApi } from "../utility/api";
 import MySVGIcon from "../components/MySVGIcon";
-import toast from "react-hot-toast"; // Import react-hot-toast
+import toast, { Toaster } from "react-hot-toast"; // Import react-hot-toast
 
 const AllRecipes = () => {
   const { isMobile } = useIsMobile();
@@ -52,6 +52,18 @@ const AllRecipes = () => {
       setError(error.message);
       setLoading(false);
     }
+  };
+
+   // Handle recipe updates
+   const handleRecipeUpdate = async (updatedData) => {
+    // Update the selected recipe in the modal
+    setSelectedRecipe((prevRecipe) => ({
+      ...prevRecipe,
+      ...updatedData,
+    }));
+
+    // Refresh the recipe list
+    await fetchRecipes(page, limit);
   };
 
   // Fetch recipes on component mount or when page/limit changes
@@ -149,11 +161,11 @@ const AllRecipes = () => {
       if (favorites[title]) {
         // If already favorited, remove it
         await favoriteRemoveApi(title);
-        toast.success("Removed from favorites!");
+        toast.success("Removed from favorites!", {icon: '❤️'});
       } else {
         // If not favorited, add it
         await favoriteApi(title);
-        toast.success("Added to favorites!");
+        toast.success("Added to favorites!" , {icon: '❤️'});
       }
 
       // Update the favorite state in the parent component
@@ -186,6 +198,20 @@ const AllRecipes = () => {
 
   return (
     <MainLayout title="Recipeze" NavBar={NavBar} className={"w-full mx-1 pb-24"}>
+
+      {/* Add the Toaster component here */}
+        <Toaster
+           position="bottom-right" 
+           toastOptions={{
+             duration: 2000,
+             style: {
+              background: '#e7d8c9', 
+              color: '#343a40', 
+              fontWeight: 'bold',
+            }, 
+           }}
+         />
+      
       {/* Search Bar */}
       <div className="mb-6">
         <SearchBar recipes={recipes} onSearch={handleSearch} />
@@ -284,7 +310,7 @@ const AllRecipes = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="custom-content">
-          {selectedRecipe && <RecipeDetail {...selectedRecipe} />}
+          {selectedRecipe && <RecipeDetail {...selectedRecipe} onUpdate={handleRecipeUpdate} />}
         </IonContent>
       </IonModal>
 

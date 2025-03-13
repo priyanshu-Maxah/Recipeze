@@ -82,8 +82,8 @@ const Home = () => {
     { image: "/src/assets/images/tea.png", label: "Tea" },
     { image: "/src/assets/images/food1.png", label: "Dinner" },
     { image: "/src/assets/images/pizza.png", label: "Dessert" },
-    { image: "/src/assets/images/french_fries.png", label: "Dessert" },
-    { image: "/src/assets/images/fruit.png", label: "Dessert" },
+    // { image: "/src/assets/images/french_fries.png", label: "Dessert" },
+    // { image: "/src/assets/images/fruit.png", label: "Dessert" },
   ];
 
   if (isLoading) {
@@ -245,7 +245,7 @@ const Home = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="custom-content">
-          {selectedRecipe && <RecipeDetail {...selectedRecipe} />}
+          {selectedRecipe && <RecipeDetail {...selectedRecipe}  showEditButton={false}/>}
         </IonContent>
       </IonModal>
 

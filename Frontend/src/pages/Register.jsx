@@ -90,7 +90,10 @@ function Register() {
               background: '#e5bbaa', // Green background for success
               color: '#000', // White text
               fontWeight: 'bold',
-            },
+            },iconTheme: {
+                primary: '#713200',
+                secondary: '#FFFAEE',
+              },
           }}
         />
 

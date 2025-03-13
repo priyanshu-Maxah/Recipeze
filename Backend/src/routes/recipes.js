@@ -5,6 +5,7 @@ const multer = require("multer");
 const sharp = require("sharp");
 const Favorite = require("../models/Favorite");
 
+
 const recipesRouter = express.Router();
 
 // using diskStorage store in upload folder
@@ -105,6 +106,50 @@ recipesRouter.post("/recipes/add", userAuth, uploads.single("image"), handleMult
     }
   }
 );
+
+recipesRouter.patch("/recipes/edit", userAuth, async (req, res) => {
+  try {
+    const {title} = req.query;
+
+    const allowedUpdates = {
+      prepTime: req.body.prepTime,
+      cookTime: req.body.cookTime,
+      totalTime: req.body.totalTime,
+      ingredients: req.body.ingredients,
+      instructions: req.body.instructions
+    }
+
+    Object.keys(allowedUpdates).forEach((key) =>allowedUpdates[key] === undefined && delete allowedUpdates[key]);
+
+      // Check if title or category is being attempted to update
+      if (req.body.title || req.body.category || req.body.rating) {
+        return res.status(400).send("Updating title or category or rating is not allowed");
+      }
+
+      const updatedRecipe = await Recipes.findOneAndUpdate(
+        {title: title},
+        allowedUpdates,
+        {new: true, runValidators: true}
+      );
+
+      await Favorite.updateMany(
+        {"recipe.title" : title},
+        {$set: {"recipe": updatedRecipe}}
+      );
+
+      if (!updatedRecipe) {
+        return res.status(404).send("Recipe not found");
+      }
+  
+      res.status(200).json({
+        message: "Recipe updated successfully",
+        recipeDetails: updatedRecipe,
+      });
+
+  } catch (error) {
+    res.status(400).send("Error: " + error.message);
+  }
+})
 
 recipesRouter.get("/recipes/view", async (req, res) => {
   try {

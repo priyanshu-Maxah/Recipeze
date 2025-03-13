@@ -70,7 +70,6 @@ const FavoriteRecipesPage = () => {
   const handleDelete = async (title) => {
     try {
       await favoriteRemoveApi(title);
-      console.log("Favorite Recipe deleted successfully");
   
       // Remove from localStorage
       const savedFavorites = localStorage.getItem("favorites");
@@ -233,7 +232,7 @@ const FavoriteRecipesPage = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="custom-content">
-          {selectedRecipe && <RecipeDetail {...selectedRecipe} />}
+          {selectedRecipe && <RecipeDetail {...selectedRecipe} showEditButton={false}/>}
         </IonContent>
       </IonModal>
 
