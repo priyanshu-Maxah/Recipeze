@@ -1,7 +1,7 @@
 # MERN Stack Recipe Application
 
-## Overview
-Recipeze is a full-stack recipe application built using the MERN stack (MongoDB, Express.js, React, Node.js). It allows users to explore, share, and manage recipes.
+## **Overview**
+ - Recipeze is a full-stack recipe application built using the MERN stack (MongoDB, Express.js, React, Node.js). It allows users to explore, share, and manage recipes.
 ---
 
 ## **Tech Stack**
