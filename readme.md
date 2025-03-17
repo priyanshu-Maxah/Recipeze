@@ -1,41 +1,70 @@
-**MERN Stack Recipe Application**
+# MERN Stack Recipe Application
 
-**Overview**
+## Overview
 Recipeze is a full-stack recipe application built using the MERN stack (MongoDB, Express.js, React, Node.js). It allows users to explore, share, and manage recipes.
+---
 
-**Tech Stack**
+## **Tech Stack**
 
-* Frontend: Ionic + React, TailwindCSS, Vite
-* Backend: Node.js, Express.js
-* Database: MongoDB
-* Authentication: JWT (JSON Web Tokens)
-* API Structure: RESTful
+- **Frontend**: 
+  - React (with Ionic for UI components)
+  - TailwindCSS for styling
+  - Vite for fast development and bundling
+- **Backend**: 
+  - Node.js with Express.js
+- **Database**: 
+  - MongoDB
+- **Authentication**: 
+  - JWT (JSON Web Tokens)
+- **API Structure**: 
+  - RESTful APIs
+---
 
-**Folder Structure**
+## Folder Structure
 
-* Backend:
-	+ `config/`
-	+ `middlewares/`
-	+ `models/`
-	+ `routes/`
-	+ `utils/`
-	+ `validation.js`
-	+ `.env`
-	+ `app.js`
-* Frontend:
-	+ `public/`
-	+ `src/`
-		- `assets/`
-		- `components/`
-		- `pages/`
-		- `App.jsx`
-		- `main.js`
-		- `index.css`
+### Backend
+```
+backend/
+├── src/
+│   ├── config/
+│   ├── middlewares/
+│   ├── models/
+│   ├── routes/
+│   ├── utils/
+│   └── validation.js
+├── .env
+├── app.js
+└── package.json
+```
 
-**Installation & Setup**
+### Frontend
+```
+frontend/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   └── App.jsx
+├── .env
+├── index.html
+└── package.json
+```
 
-1. Clone the repository: `git clone https://github.com/priyanshu-Maxah/Recipeze.git`
-2. Install dependencies:
+## **Installation & Setup**
+
+### Prerequisites
+- Node.js (v16 or higher)
+- MongoDB (local or cloud instance)
+- Git
+
+### Steps to Run the Project
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/priyanshu-Maxah/Recipeze.git
+   cd Recipeze
+2. **Install dependencies**:
 	* Backend: `cd backend` and `npm install`
 	* Frontend: `cd ../frontend` and `npm install`
 3. Create a `.env` file in both the backend and frontend directories and configure the necessary environment variables. The following variables are required:
@@ -50,15 +79,17 @@ secretJWT=your_secret_key_here
 ```
 4. Run the project:
 	* Backend: `cd backend` and `npm start`
-	* Frontend: `cd ../frontend` and `npm run dev`
+	* Frontend: `cd ../frontend` and `npm run dev`   
 
+## **Features**
 
-**Features**
-
-* User authentication and authorization (JWT)
-* Create, read, update, and delete recipes
-* Responsive and modern UI built with TailwindCSS
-* Fast development setup with Vite
+- **User Authentication**: Secure user registration and login using JWT.
+- **Recipe Management**:
+  - Create, read, update, and delete recipes.
+  - View detailed recipe information.
+- **Responsive UI**: Modern and mobile-friendly design powered by TailwindCSS and Ionic.
+- **Fast Development**: Optimized build setup using Vite.
+---
 
 **Project Built By**
 
